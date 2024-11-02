@@ -10,16 +10,25 @@ fetch("https://www.world-wonders-api.org/v0/wonders")
   .then(data => {
     console.log(data);
     data.forEach(wonder => {
+
       const wonderContainer = document.createElement("div");
+      wonderContainer.className = "wonder-container flex flex-column";
 
       const wonderImg = document.createElement("img");
       wonderImg.src = wonder.links.images[0];
 
+
       const wonderName = document.createElement("p");
       wonderName.innerHTML = `${wonder.name}`;
 
+      const wonderLink = document.createElement("a");
+      wonderLink.href = `detailed.html?name=${encodeURIComponent(wonder.name)}`;
+      wonderLink.className = "wonder-item";
+      wonderLink.textContent = "Read more";
+
       wonderContainer.appendChild(wonderImg);
       wonderContainer.appendChild(wonderName);
+      wonderContainer.appendChild(wonderLink);
 
       wonderList.appendChild(wonderContainer);
     });
