@@ -13,14 +13,12 @@ if (wonderName) {
       return response.json();
     })
     .then(function (data) {
-      // Use 'return' in the find function
       const selectedWonder = data.find(function (row) {
         return row.name === wonderName;
       });
       title.innerHTML = `<h2>${selectedWonder.name}</h2>`
 
       if (selectedWonder) {
-        // Display all available details
         leftSection.innerHTML = `
           <p><strong>Summary:</strong> ${selectedWonder.summary}</p>
           <p><strong>Location:</strong> ${selectedWonder.location}</p>
@@ -36,7 +34,6 @@ if (wonderName) {
           </ul>
         `;
 
-        // Use .join('') to prevent commas from showing up
         const images = selectedWonder.links.images.map(img => `<img src="${img}" class="slide">`).join('');
 
 
@@ -45,7 +42,6 @@ if (wonderName) {
                   <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
                   <button class="next" onclick="changeSlide(1)">&#10095;</button>
               </div>`;
-        // Initialize slideshow
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         showSlide(currentSlide);

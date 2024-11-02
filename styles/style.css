@@ -11,6 +11,7 @@ body {
   background-size: cover;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .hero-section h1 {
@@ -43,23 +44,30 @@ body {
   flex: 1;
 }
 
+.title {
+  margin: 30px;
+  text-align: center;
+}
+
+.left-side {
+  gap: 10px;
+  padding: 10px;
+}
+
 .slideshow-container {
   position: relative;
   max-width: 600px;
-  /* Set a maximum width for the slideshow */
   margin: auto;
 }
 
 .slide {
   display: none;
-  /* Hide all images by default */
   width: 100%;
-  /* Make images responsive */
-  /* Maintain aspect ratio */
+
 }
 
-button.prev,
-button.next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   width: auto;
@@ -71,10 +79,22 @@ button.next {
   transform: translateY(-50%);
 }
 
-button.prev {
+.prev {
   left: 0;
 }
 
-button.next {
+.next {
   right: 0;
+}
+
+.information {
+  display: flex;
+}
+
+@media(max-width:760px) {
+  .information {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
