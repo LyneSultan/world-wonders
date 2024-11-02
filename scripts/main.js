@@ -19,10 +19,10 @@ fetch("https://www.world-wonders-api.org/v0/wonders")
 
 
       const wonderName = document.createElement("p");
-      wonderName.innerHTML = `${wonder.name}`;
+      wonderName.innerHTML = wonder.name;
 
       const wonderLink = document.createElement("a");
-      wonderLink.href = `detailed.html?name=${encodeURIComponent(wonder.name)}`;
+      wonderLink.href = 'detailed.html?name=' +wonder.name;
       wonderLink.className = "wonder-item";
       wonderLink.textContent = "Read more";
 
