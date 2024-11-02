@@ -37,13 +37,31 @@ if (wonderName) {
         `;
 
         // Use .join('') to prevent commas from showing up
-        const images = selectedWonder.links.images.map(
-          img => `<img src="${img}" alt="${selectedWonder.name} image"/>`
-        ).join('');
+        const images = selectedWonder.links.images.map(img => `<img src="${img}" class="slide">`).join('');
 
-        rightSection.innerHTML = images;
+
+        rightSection.innerHTML = `<div class="slideshow-container">
+                  ${images}
+                  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+              </div>`;
+        // Initialize slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        showSlide(currentSlide);
+
+        function showSlide(index) {
+          slides.forEach(slide => slide.style.display = 'none');
+          slides[index].style.display = 'block';
+        }
+
+        window.changeSlide = function (n) {
+          currentSlide = (currentSlide + n + slides.length) % slides.length; // Wrap around
+          showSlide(currentSlide);
+        };
+
       } else {
-        leftSection.innerHTML = `<p>Wonder not found.</p>`;
+        right.textContent = "Wonder not found!";
       }
     })
     .catch(error => {

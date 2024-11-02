@@ -42,3 +42,39 @@ body {
 .right-side {
   flex: 1;
 }
+
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  /* Set a maximum width for the slideshow */
+  margin: auto;
+}
+
+.slide {
+  display: none;
+  /* Hide all images by default */
+  width: 100%;
+  /* Make images responsive */
+  /* Maintain aspect ratio */
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+button.prev {
+  left: 0;
+}
+
+button.next {
+  right: 0;
+}
