@@ -31,6 +31,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
+
 }
 
 .wonder-container img {
@@ -44,9 +45,11 @@ body {
   flex: 1;
 }
 
+.parallax>h1,
 .title {
-  margin: 30px;
   text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .left-side {
